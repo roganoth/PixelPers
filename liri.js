@@ -1,20 +1,29 @@
 require("dotenv").config();
 var keys = require("./keys.js");
 var axios = require("axios");
+var moment = require("moment");
 var request = process.argv[2];
+
+// define(["moment"], function(moment){
+//     console.log(moment().format("LLLL"));
+// })
 
 if (request === "artist-event") {
     var artist = process.argv.slice(3).join();
     var bandsURL = "https://rest.bandsintown.com/artists/" + artist + "/events?app_id=codingbootcamp"
-    axios.get(bandsURL).then(function (result, err) {
-        if (err) {
-            console.log(err);
-        }
+    axios.get(bandsURL).then(function (result) {
+        // if (err) {
+        //     console.log(err);
+        // }
         console.log(result);
         for (i = 0; i < result.length; i++) {
-            console.log(result[i].datetime)
+            console.log("============================");
+            console.log(moment(result[i].datetime));
+            console.log("============================");
             console.log("Venue: " + result[i].venue.name);
-            console.log(result[i].venue.city + ", "+ result[i].venue.country);
+            console.log("============================");
+            console.log(result[i].venue.city + ", " + result[i].venue.country);
+            console.log("============================");
         }
 
     })
@@ -23,7 +32,16 @@ if (request === "artist-event") {
 if (request === "movie") {
     var title = process.argv.slice(3).join("+");
     axios.get("http://www.omdbapi.com/?t=" + title + "&y=&plot=short&apikey=trilogy").then(function (response) {
-        console.log(response);
+        var info = response.data;
+        // console.log(response);
+        console.log("Title: " + info.Title);
+        console.log("Release Year: " + info.Year);
+        console.log("imdbRating: " + info.imdbRating);
+        console.log("Rotten Tomatoes Rating: " + info.Ratings[1].Value);
+        console.log("Country: " + info.Country);
+        console.log("Language: " + info.Language);
+        console.log("Plot: " + info.Plot);
+        console.log("Actors: " + info.Actors);
     })
         .catch(function (error) {
             if (error.response) {
