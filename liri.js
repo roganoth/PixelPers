@@ -11,11 +11,11 @@ if (request === "artist-event") {
             console.log(err);
         }
         console.log(result);
-        // for (i = 0; i < result.length; i++) {
-        //     console.log(result[i].datetime)
-        //     console.log("Venue: " + result[i].venue.name);
-        //     console.log(result[i].venue.city + ", "+ result[i].venue.country);
-        // }
+        for (i = 0; i < result.length; i++) {
+            console.log(result[i].datetime)
+            console.log("Venue: " + result[i].venue.name);
+            console.log(result[i].venue.city + ", "+ result[i].venue.country);
+        }
 
     })
 }
@@ -51,5 +51,5 @@ if (request === "movie") {
 if (request === "music") {
     var spotifyInfo = process.argv.slice(3).join();
     var spotify = new spotify(keys.spotify);
-    axios.get("https://api.spotify.com" + "/v1/artists/" + spotifyInfo)
+    axios.get("https://api.spotify.com/v1/artists/" + spotifyInfo)
 }
