@@ -25,7 +25,6 @@ if (request === "artist-event") {
             console.log(result[i].venue.city + ", " + result[i].venue.country);
             console.log("============================");
         }
-
     })
 }
 
