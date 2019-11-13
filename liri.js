@@ -1,28 +1,26 @@
 require("dotenv").config();
 var keys = require("./keys.js");
+var spotify = new spotify(keys.spotify);
 var axios = require("axios");
 var moment = require("moment");
+var spotify = require("spotify");
 var request = process.argv[2];
 
-// define(["moment"], function(moment){
-//     console.log(moment().format("LLLL"));
-// })
-
 if (request === "artist-event") {
-    var artist = process.argv.slice(3).join();
+    var artist = process.argv.slice(3).join("");
+    // var artist = process.argv[3]
     var bandsURL = "https://rest.bandsintown.com/artists/" + artist + "/events?app_id=codingbootcamp"
-    axios.get(bandsURL).then(function (result) {
-        // if (err) {
-        //     console.log(err);
-        // }
-        // console.log(result);
-        for (i = 0; i < 5; i++) {
+    axios.get(bandsURL).then(function (result, err) {
+        if (err) {
+            console.log(err);
+        }
+        for (i = 0; i < result.data.length; i++) {
             console.log("============================");
-            console.log(result[i].datetime);
+            console.log(moment(result.data[i].datetime).format('LL'));
             console.log("============================");
-            console.log("Venue: " + result[i].venue.name);
+            console.log("Venue: " + result.data[i].venue.name);
             console.log("============================");
-            console.log(result[i].venue.city + ", " + result[i].venue.country);
+            console.log(result.data[i].venue.city + ", " + result.data[i].venue.country);
             console.log("============================");
         }
     })
@@ -83,6 +81,5 @@ if (request === "movie") {
 
 if (request === "music") {
     var spotifyInfo = process.argv.slice(3).join();
-    var spotify = new spotify(keys.spotify);
     axios.get("https://api.spotify.com/v1/artists/" + spotifyInfo)
 }
