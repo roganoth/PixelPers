@@ -1,6 +1,6 @@
 require("dotenv").config();
 var keys = require("./keys.js");
-// var spotify = new spotify(keys.spotify);
+// var spotifyKeys = spotify(keys.spotify);
 var axios = require("axios");
 var moment = require("moment");
 // var spotify = require("spotify");
@@ -83,6 +83,6 @@ if (request === "movie") {
 }
 
 if (request === "music") {
-    var spotifyInfo = process.argv.slice(3).join();
-    axios.get("https://api.spotify.com/v1/artists/" + spotifyInfo)
+    var spotifyInfo = process.argv.slice(3).join("");
+    axios.get("https://api.spotify.com/v1/artists/" + spotifyInfo + spotifyKeys)
 }
