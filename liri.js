@@ -1,9 +1,9 @@
 require("dotenv").config();
 var keys = require("./keys.js");
-// var spotify = new spotify(keys.spotify);
+// var spotifyKeys = spotify(keys.spotify);
 var axios = require("axios");
 var moment = require("moment");
-// var spotify = require("spotify");
+var spotify = require("node-spotify-api");
 var request = process.argv[2];
 
 if (request === "artist-event") {
@@ -83,6 +83,11 @@ if (request === "movie") {
 }
 
 if (request === "music") {
-    var spotifyInfo = process.argv.slice(3).join();
-    axios.get("https://api.spotify.com/v1/artists/" + spotifyInfo)
+    var spotifyInfo = process.argv.slice(3).join("");
+    axios.get(spotify.search({ type: 'artist OR album OR track', query: spotifyInfo, limity: 20 }, function (err, data) {
+        if (err) {
+            console.log(err);
+        }
+        console.log(data);
+    }))
 }

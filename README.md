@@ -1,0 +1,1 @@
+the spotify node api isn't working. it keeps returning that spotify.search is not a function. I've tried every different syntax I could think of including wrapping it in axios.get, stand alone, I even copied straight from the docs and it kept saying that spotiy.search is not a function. I'm not sure what to do but submit it as it. 
