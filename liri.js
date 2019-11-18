@@ -7,7 +7,7 @@ var spotify = require("node-spotify-api");
 var request = process.argv[2];
 var fs = require("fs");
 
-fs.appendFile('./log.txt', "\n" + process.argv, function(err){
+fs.appendFile('./log.txt', "\n" + process.argv, function (err) {
     if (err) throw err;
 });
 
