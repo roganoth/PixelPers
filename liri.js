@@ -5,6 +5,11 @@ var axios = require("axios");
 var moment = require("moment");
 var spotify = require("node-spotify-api");
 var request = process.argv[2];
+var fs = require("fs");
+
+fs.appendFile('./log.txt', "\n" + process.argv, function(err){
+    if (err) throw err;
+});
 
 if (request === "artist-event") {
     var artist = process.argv.slice(3).join("");
@@ -90,4 +95,8 @@ if (request === "music") {
         }
         console.log(data);
     }))
+}
+
+if (request === "random") {
+    var random = fs.readFile("./random.txt")
 }
