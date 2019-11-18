@@ -98,5 +98,8 @@ if (request === "music") {
 }
 
 if (request === "random") {
-    var random = fs.readFile("./random.txt")
+    var random = fs.readFile("./random.txt", function(err){
+        if (err) throw err;
+    });
+    console.log(random);
 }
