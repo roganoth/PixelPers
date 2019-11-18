@@ -1,3 +1,9 @@
 Log of liri.js commands:
 C:\Program Files\nodejs\node.exe,C:\Users\dan\Desktop\rutgers\homework\PixelPers\liri.js,movie,the,matrix
 C:\Program Files\nodejs\node.exe,C:\Users\dan\Desktop\rutgers\homework\PixelPers\liri.js,random
+C:\Program Files\nodejs\node.exe,C:\Users\dan\Desktop\rutgers\homework\PixelPers\liri.js,movie
+C:\Program Files\nodejs\node.exe,C:\Users\dan\Desktop\rutgers\homework\PixelPers\liri.js,movie,judge,dredd
+C:\Program Files\nodejs\node.exe,C:\Users\dan\Desktop\rutgers\homework\PixelPers\liri.js,artist-event,billie,eilish
+C:\Program Files\nodejs\node.exe,C:\Users\dan\Desktop\rutgers\homework\PixelPers\liri.js,movie
+C:\Program Files\nodejs\node.exe,C:\Users\dan\Desktop\rutgers\homework\PixelPers\liri.js,movie,the,matrix
+C:\Program Files\nodejs\node.exe,C:\Users\dan\Desktop\rutgers\homework\PixelPers\liri.js,artist-event,billie,eilish
